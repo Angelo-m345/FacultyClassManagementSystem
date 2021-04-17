@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+
+namespace Faculty_Class_Management_System
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("User Login");
+
+            string username, password, usernameC, passwordC = string.Empty;
+
+            Console.Write("username: ");
+            username = Console.ReadLine();
+            Console.Write("password: ");
+            password = Console.ReadLine();
+
+            using (StreamReader sr = new StreamReader(File.Open("C:\\1.txt", FileMode.Open)))
+                    {
+                usernameC = sr.ReadLine();
+                passwordC = sr.ReadLine();
+                sr.Close();
+
+            }
+            if (username == usernameC && password == passwordC)
+            {
+                Console.WriteLine("Successfully Logged In");
+            }
+
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+            Console.Read();
+        }
+    }
+}
